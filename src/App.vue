@@ -14,19 +14,16 @@
     name: 'app',
     components: {
       TodoHeader,
-      TodoList,
-      // TodoItem
+      TodoList
     }
   }
 </script>
 
 <style lang="scss">
-@import 'styles/styles';
 
 body, html {
   width: 100%;
   height: 100%;
-  background: #F2F3F6;
 }
 
 .app {

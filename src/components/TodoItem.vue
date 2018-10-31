@@ -1,7 +1,9 @@
 <template lang="html">
-  <div class="item">
-    <p class="item__text" v-bind:class="{ 'item__text--toggled': isToggled }">{{ taskName }}</p>
-    <button class="item__btn">
+  <div class="item"
+    :class="{ 'item--toggled': isToggled }"
+    @click="isToggled = !isToggled">
+    <p class="item__text">{{ taskName }}</p>
+    <button class="item__btn" @click="markAsDone($event)">
       ok
     </button>
   </div>
@@ -13,59 +15,48 @@
     props: ['taskName'],
 		data() {
 			return {
-        isToggled: true
+        isToggled: false
 			}
     },
-    // data: {
-    //   isToggled: true
-    // } 
+    methods: {
+      markAsDone: function(e) {
+        e.stopPropagation();
+      }
+    }
 	};
 </script>
 
 <style scoped lang="scss">
   $height: 70px;
-  $easing: cubic-bezier(.5, 0, .2, 1);
   
-  $duration: 400ms;
-  $delay: 80ms;
-
   .item {
+    @include flex-align-justify(center, space-between);
+    @include content-enter(7);
     width: 100%;
-    height: $height;
+    max-height: $height;
     background: #ffffff;
     box-shadow: 0 5px 10px $shadow-color;
-    border-radius: calc(#{$height} / 2);
-    @include flex-align-justify(center, space-between);
-    padding: 10px 20px;
+    border-radius: calc(5px);
+    padding: 20px;
     margin-bottom: 15px;
-    animation: enter $duration $easing backwards;    
+    transition: all 1s ease; 
 
-    @for $i from 1 through 7 {
-      &:nth-child(#{$i}) {
-        animation-delay: calc(#{$i} * #{$delay});
-      }
-    }
-
-    &__text {
+    .item__text {
       font-size: 1.2rem;
       color: $font-color;
       white-space: nowrap;
       overflow-x: hidden;
       padding: 2px 0;
       text-overflow: ellipsis;
+    }
 
-      &--toggled {
+    &--toggled {
+      max-height: 500px;
+
+      .item__text {
         white-space: unset;
         overflow-x: auto;
-        background: red;
       }
-    }
-  }
-
-  @keyframes enter {
-    from {
-      opacity: 0;
-      transform: translateY(1rem) scale(0.6);
     }
   }
 </style>

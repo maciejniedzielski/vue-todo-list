@@ -39,7 +39,6 @@
     border-bottom: 1px solid $border-color;
     padding: 20px 25px; 
     position: sticky;
-    margin-bottom: 20px;
     top: 0;
   }
 
