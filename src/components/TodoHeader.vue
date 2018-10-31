@@ -69,6 +69,7 @@
   }
 
   .add-btn {
+    @include transition(all);
     width: 60px;
     height: 60px;
     border-radius: 50px;
@@ -82,9 +83,15 @@
     right: 30px;
     cursor: pointer;
     box-shadow: 0 2px 5px $shadow-color;
+    outline: none;
+
+    &:active {
+      box-shadow: 0 2px 5px darken($shadow-color, 10);
+      transform: translateY(-2px);
+    }
 
     &:focus {
-      box-shadow: 0 2px 5px $shadow-color;
+      background: darken($main-color, 5);
     }
   }
 </style>
