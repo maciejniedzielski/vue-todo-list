@@ -1,0 +1,33 @@
+
+* {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: $main-color;
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main-color;
+  border-radius: 5px;
+}
+
+html {
+  font-size: 14px;
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
