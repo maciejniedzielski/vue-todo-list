@@ -2,13 +2,16 @@
   <section class="list">
     <h2 class="list__heading">Select priority</h2>
     <TodoFilter/>
-    <TodoItem v-for="item in items" :key="item.taskName" :taskName="item.taskName"/>
+    <TodoItem v-for="task in tasks" :key="task.name" :task="task"/>
   </section>
 </template>
 
 <script>
   import TodoItem from './TodoItem.vue';
   import TodoFilter from './TodoFilter.vue';
+
+  const ENUM_DONE   = 0,
+        ENUM_ACTIVE = 1;
 
   export default {
     name: 'TodoList',
@@ -18,14 +21,35 @@
     },
     data() {
       return {
-        items: [
-          { taskName: 'Learn new view library' },
-          { taskName: 'Read some docs' },
-          { taskName: 'Start coding' },
-          { taskName: `Read docs again when you dont know sth blah blah blah blah blah blah blah blah blah` },
-          { taskName: 'Continue coding' },
-          { taskName: 'Do some commits' },
-          { taskName: 'Have fun!' },
+        tasks: [
+          {
+            name: 'Learn new view library',
+            status: ENUM_DONE
+          },
+          {
+            name: 'Read some docs',
+            status: ENUM_DONE
+          },
+          {
+            name: 'Start coding',
+            status: ENUM_ACTIVE
+          },
+          {
+            name: `Read docs again when you dont know sth blah blah blah blah blah blah blah blah blah`,
+            status: ENUM_ACTIVE
+          },
+          {
+            name: 'Continue coding',
+            status: ENUM_DONE
+          },
+          {
+            name: 'Do some commits',
+            status: ENUM_ACTIVE
+          },
+          {
+            name: 'Have fun!',
+            status: ENUM_ACTIVE
+          },
         ]
       }
     }

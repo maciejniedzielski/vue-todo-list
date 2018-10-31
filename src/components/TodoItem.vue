@@ -1,8 +1,11 @@
 <template lang="html">
   <div class="item"
-    :class="{ 'item--toggled': isToggled }"
+    :class="{ 
+      'item--toggled': isToggled,
+      'item--done': task.status == 0 
+    }"
     @click="isToggled = !isToggled">
-    <p class="item__text">{{ taskName }}</p>
+    <p class="item__text">{{ task.name }}</p>
     <button class="item__btn" @click="markAsDone($event)">
       ok
     </button>
@@ -12,7 +15,7 @@
 <script>
 	export default {
     name: 'TodoItem',
-    props: ['taskName'],
+    props: ['task'],
 		data() {
 			return {
         isToggled: false
@@ -55,6 +58,14 @@
       .item__text {
         white-space: unset;
         overflow-x: auto;
+      }
+    }
+
+    &--done {
+      opacity: 0.5;
+
+      .item__text {
+        text-decoration: line-through;
       }
     }
   }

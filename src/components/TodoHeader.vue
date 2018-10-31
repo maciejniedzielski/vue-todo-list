@@ -39,6 +39,7 @@
     border-bottom: 1px solid $border-color;
     padding: 20px 25px; 
     position: sticky;
+    z-index: 1;
     top: 0;
   }
 
@@ -80,7 +81,7 @@
     color: #FFFFFF;
     position: absolute;
     bottom: -30px;
-    right: 30px;
+    right: 25px;
     cursor: pointer;
     box-shadow: 0 2px 5px $shadow-color;
     outline: none;
