@@ -28,18 +28,17 @@
 
 <style scoped lang="scss">
   $height: 70px;
-  
+
   .item {
     @include flex-align-justify(center, space-between);
     @include content-enter(7, 0);
     width: 100%;
     max-height: $height;
     background: #ffffff;
-    box-shadow: 0 5px 10px $shadow-color;
+    box-shadow: 0 2px 10px $shadow-color;
     border-radius: calc(5px);
     padding: 20px;
     margin-bottom: 15px;
-    transition: all 1s ease; 
 
     .item__text {
       font-size: 1.2rem;

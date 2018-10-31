@@ -27,15 +27,21 @@
     color: #ffffff;
 
     &.high {
-      background: darken($main-color, 40);
+      $color: #FF6262;
+      background: $color;
+      @include active-darken($color);
     }
 
     &.medium {
-      background: $main-color;
+      $color: #FFBB00;
+      background: $color;
+      @include active-darken($color);
     }
 
     &.low {
-      background: lighten($main-color, 10 );
+      $color: #63CBAC;
+      background: $color;
+      @include active-darken($color);
     }
 
     &:active {

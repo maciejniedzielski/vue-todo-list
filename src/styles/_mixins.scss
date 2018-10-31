@@ -34,3 +34,9 @@
     transform: translateY(1rem) scale(0.6);
   }
 }
+
+@mixin active-darken($color) {
+  &:active {
+    background: darken($color, 5);
+  }
+}
