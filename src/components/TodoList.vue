@@ -39,7 +39,7 @@
     @include flex-align-justify(flex-start, flex-start);
     flex-direction: column;
     padding: 0 10px 20px;
-    background: #F2F3F6;
+    background: #F7F7F7;
 
     &__heading {
       font-size: 14px;

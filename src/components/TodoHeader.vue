@@ -86,12 +86,12 @@
     outline: none;
 
     &:active {
-      box-shadow: 0 2px 5px darken($shadow-color, 10);
+      box-shadow: 0 2px 5px darken($shadow-color, 10%);
       transform: translateY(-2px);
     }
 
     &:focus {
-      background: darken($main-color, 5);
+      background: darken($main-color, 5%);
     }
   }
 </style>

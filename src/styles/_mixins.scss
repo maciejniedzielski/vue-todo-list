@@ -22,7 +22,7 @@
   animation: enter $duration $easing backwards;   
 
   @for $i from 1 through $number {
-    &:nth-child(#{$i}) {
+    &:nth-of-type(#{$i}) {
       animation-delay: calc(#{$baseDelay + ms} + #{$i} * #{$delay});
     }
   }
@@ -37,6 +37,6 @@
 
 @mixin active-darken($color) {
   &:active {
-    background: darken($color, 5);
+    background: darken($color, 5%);
   }
 }
