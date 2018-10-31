@@ -36,7 +36,7 @@
     max-height: $height;
     background: #ffffff;
     box-shadow: 0 2px 10px $shadow-color;
-    border-radius: calc(5px);
+    border-radius: 5px;
     padding: 20px;
     margin-bottom: 15px;
 
