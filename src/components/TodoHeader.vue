@@ -31,8 +31,6 @@
 }
 </script>
 <style scoped lang="scss">
-  @import "../styles/styles";
-
   .header {
     width: 100%;
     height: 100px;

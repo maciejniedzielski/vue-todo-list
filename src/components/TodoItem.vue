@@ -23,7 +23,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../styles/styles";
   $height: 70px;
   $easing: cubic-bezier(.5, 0, .2, 1);
   

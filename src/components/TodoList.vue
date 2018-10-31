@@ -29,7 +29,6 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../styles/styles";
 
   .list {
     width: 100%;
