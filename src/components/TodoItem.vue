@@ -31,7 +31,7 @@
   
   .item {
     @include flex-align-justify(center, space-between);
-    @include content-enter(7);
+    @include content-enter(7, 0);
     width: 100%;
     max-height: $height;
     background: #ffffff;

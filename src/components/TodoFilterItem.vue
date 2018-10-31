@@ -17,7 +17,7 @@
   .badge {
     @extend %clear-button;
     @include transition(all);
-    @include content-enter(3);
+    @include content-enter(3, 500);
     width: auto;
     min-width: calc(25% - 10px);
     padding: 5px 10px;
