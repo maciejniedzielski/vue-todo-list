@@ -28,19 +28,19 @@
     cursor: pointer;
 
     &.high {
-      $color: #FF6262;
+      $color: $priority-high;
       background: $color;
       @include active-darken($color);
     }
 
     &.medium {
-      $color: #FFBB00;
+      $color: $priority-medium;
       background: $color;
       @include active-darken($color);
     }
 
     &.low {
-      $color: #63CBAC;
+      $color: $priority-low;
       background: $color;
       @include active-darken($color);
     }

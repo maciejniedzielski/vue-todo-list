@@ -24,31 +24,38 @@
         tasks: [
           {
             name: 'Learn new view library',
-            status: ENUM_DONE
+            status: ENUM_DONE,
+            priority: 'low'
           },
           {
             name: 'Read some docs',
-            status: ENUM_DONE
+            status: ENUM_DONE,
+            priority: 'medium'
           },
           {
             name: 'Start coding',
-            status: ENUM_ACTIVE
+            status: ENUM_ACTIVE,
+            priority: 'high'
           },
           {
             name: `Read docs again when you dont know sth blah blah blah blah blah blah blah blah blah`,
-            status: ENUM_ACTIVE
+            status: ENUM_ACTIVE,
+            priority: 'medium'
           },
           {
             name: 'Continue coding',
-            status: ENUM_DONE
+            status: ENUM_DONE,
+            priority: 'medium'
           },
           {
             name: 'Do some commits',
-            status: ENUM_ACTIVE
+            status: ENUM_ACTIVE,
+            priority: 'low'
           },
           {
             name: 'Have fun!',
-            status: ENUM_ACTIVE
+            status: ENUM_ACTIVE,
+            priority: 'low'
           },
         ]
       }
