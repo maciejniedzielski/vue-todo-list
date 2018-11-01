@@ -55,6 +55,8 @@
       
       &--high {
         background: $priority-high;
+        animation: pulse 1s infinite;
+        animation-duration: 2s;
       }
 
       &--medium {
