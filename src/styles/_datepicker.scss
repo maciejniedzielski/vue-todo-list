@@ -3,16 +3,6 @@
     animation: slide-down 500ms;
   }
 
-  @keyframes slide-down {
-    from {
-      transform: translate(-50%, -200%);
-    } 
-
-    to {
-      transform: translate(-50%, -50%);
-    }
-  }
-
   .vdatetime-popup__header,
   .theme-orange .vdatetime-calendar__month__day--selected > span > span,
   .theme-orange .vdatetime-calendar__month__day--selected:hover > span > span {
