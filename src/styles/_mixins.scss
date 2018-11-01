@@ -15,7 +15,6 @@
 }
 
 @mixin content-enter($number, $baseDelay) {
-  $easing: cubic-bezier(.5, 0, .2, 1);
   $duration: 400ms;
   $delay: 80ms;
 

@@ -1,0 +1,91 @@
+.datepicker {
+  .vdatetime-popup {
+    animation: slide-down 500ms;
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translate(-50%, -200%);
+    } 
+
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .vdatetime-popup__header,
+  .theme-orange .vdatetime-calendar__month__day--selected > span > span,
+  .theme-orange .vdatetime-calendar__month__day--selected:hover > span > span {
+    background: lighten($main-color, 5%);
+    font-family: 'Lato', sans-serif ;
+  }
+
+  .theme-orange .vdatetime-year-picker__item--selected,
+  .theme-orange .vdatetime-time-picker__item--selected,
+  .theme-orange .vdatetime-popup__actions__button {
+    background: $main-color;
+    font-family: 'Lato', sans-serif ;
+  }
+
+  .vdatetime-popup {
+    background: transparent;
+
+    &__actions {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  .vdatetime-popup__header {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .vdatetime-calendar__navigation,
+  .vdatetime-calendar__month,
+  .vdatetime-popup__actions,
+  .vdatetime-year-picker__list {
+    background: #ffffff;
+    font-family: 'Lato', sans-serif ;
+  }
+
+  .vdatetime-calendar__navigation{
+    margin: auto;
+    padding: 15px 20px;
+    @include flex-align-justify(center, space-between);
+
+    &--previous, &--next {
+      position: static;
+    }
+  }
+
+  .vdatetime-popup__date {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+
+  .vdatetime-calendar {
+    color: $font-color;
+  }
+
+  .vdatetime-calendar__month__weekday {
+    font-weight: 300;
+  }
+
+  .vdatetime-input {
+    display: none;
+  }
+
+  .vdatetime-calendar__month__day {
+    &.vdatetime-calendar__month__day--selected {
+      span {
+        span {
+          background: $main-color;
+        }
+      }
+    }
+  }
+
+  .vdatetime-calendar__current--month {
+    font-size: 16px;
+  }
+}
+

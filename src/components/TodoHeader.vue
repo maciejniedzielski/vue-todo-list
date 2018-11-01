@@ -3,6 +3,14 @@
     <div class="header-date">
       <div class="header-date__day">
         <span><span class="bold">{{ dayName }}</span>, {{ day }}</span>
+        <datetime type="date" input-id="startDate" class="datepicker">
+          <!-- v-model="date"  -->
+          <label for="startDate" slot="before">
+            <div class="icon-container">
+              <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
+            </div>
+          </label>
+        </datetime>
         <p class="counter"><span class="bold">12</span> Tasks</p>
       </div>
       <p class="header-date__month">{{ month }}</p>
@@ -93,6 +101,26 @@
 
     &:focus {
       background: darken($main-color, 5%);
+    }
+  }
+
+  .icon-container {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    left: -45px;
+    @include transition(all);
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      filter: contrast(5%);
+      cursor: pointer;
+    
+      &:active {
+        transform: translateY(2px);
+      }
     }
   }
 </style>

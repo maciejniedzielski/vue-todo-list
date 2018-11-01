@@ -25,6 +25,7 @@
     border-radius: 50px;
     text-transform: uppercase;
     color: #ffffff;
+    cursor: pointer;
 
     &.high {
       $color: #FF6262;
@@ -45,7 +46,7 @@
     }
 
     &:active {
-      transform: translateY(-2px);
+      transform: translateY(2px);
       box-shadow: 0 2px 2px 0px darken($shadow-color, 10%);
     }
   }
