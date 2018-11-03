@@ -7,15 +7,14 @@
 
         <div class="input-container">
           <datetime type="date" input-id="filterDate" input-class="filter-date" class="datepicker">
-            <!-- v-model="date"  -->
             <label for="filterDate" slot="before">
               <div class="icon-container">
                 <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
               </div>
             </label>
           </datetime>
-<!-- v-model="date" -->
           <div class="priority">
+
             <input type="radio" name="priority" id="high" class="priority__input">
             <label for="high" class="priority__label priority__label--high">High</label>
 
@@ -24,8 +23,8 @@
 
             <input type="radio" name="priority" id="low" class="priority__input">
             <label for="low" class="priority__label priority__label--low">Low</label>
+            
           </div>
-
         </div>
 
         <div class="action">
@@ -43,6 +42,11 @@
 <script>
   export default {
     name: 'TodoItemModal',
+    data() {
+      return {
+        date: new Date().toISOString()
+      }
+    },
     methods: {
       toggleModal(e) {
         this.$emit('toggleModal');
@@ -154,6 +158,7 @@
     &__button {
       @extend %clear-button;
       @include transition(all);
+      min-width: 100px;
       padding: 10px 30px;
       border-radius: 3px;
       font-size: 1rem;
