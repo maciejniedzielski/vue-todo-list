@@ -3,9 +3,8 @@
     <div class="header-date">
       <div class="header-date__day">
         <span><span class="bold">{{ dayName }}</span>, {{ day }}</span>
-        <datetime type="date" input-id="startDate" class="datepicker">
-          <!-- v-model="date"  -->
-          <label for="startDate" slot="before">
+        <datetime type="date" v-model="date"  input-id="filterDate" input-class="filter-date" class="datepicker">
+          <label for="filterDate" slot="before">
             <div class="icon-container">
               <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
             </div>
@@ -15,12 +14,15 @@
       </div>
       <p class="header-date__month">{{ month }}</p>
     </div>
-    <button class="add-btn">
+    <button class="add-btn" @click="toggleModal()">
       <i class="material-icons">+</i>
     </button>
+  <TodoItemModal v-if="modalToggled" @toggleModal="toggleModal()"></TodoItemModal>
   </header>
 </template>
 <script lang="js">
+  import TodoItemModal from './TodoItemModal.vue';
+
   const date = new Date();
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -29,11 +31,21 @@
 
   export default  {
     name: 'TodoHeader',
+    components: {
+      TodoItemModal
+    },
     data() {
       return {
         month: monthNames[date.getMonth()],
         day: date.getDate(),
-        dayName: days[date.getDay()]
+        dayName: days[date.getDay()],
+        modalToggled: false,
+        date: date.toISOString()
+      }
+    },
+    methods: {
+      toggleModal(){
+        this.modalToggled = !this.modalToggled;
       }
     }
 }
@@ -69,6 +81,10 @@
     color: $font-color;
     font-weight: 300;
     margin: 5px 0;
+  }
+  
+  .filter-date {
+    display: none;
   }
 
   .counter {
@@ -110,17 +126,5 @@
     position: relative;
     top: 0;
     left: -45px;
-    @include transition(all);
-
-    .icon {
-      width: 100%;
-      height: 100%;
-      filter: contrast(5%);
-      cursor: pointer;
-    
-      &:active {
-        transform: translateY(2px);
-      }
-    }
   }
 </style>
