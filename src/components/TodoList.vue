@@ -75,7 +75,7 @@
     background: #F7F7F7;
 
     &__heading {
-      font-size: 14px;
+      font-size: 1rem;
       margin: 15px 0;
       color: $font-color;
     }
