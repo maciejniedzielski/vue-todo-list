@@ -86,6 +86,7 @@
       height: 30px;
       border-radius: 30px;
       border: 2px solid $main-color;
+      cursor: pointer;
 
       &:active {
         transform: translateY(2px);

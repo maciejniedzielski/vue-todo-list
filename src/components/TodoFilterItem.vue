@@ -31,18 +31,21 @@
       $color: $priority-high;
       background: $color;
       @include active-darken($color);
+      @include hover-darken($color);
     }
 
     &.medium {
       $color: $priority-medium;
       background: $color;
       @include active-darken($color);
+      @include hover-darken($color);
     }
 
     &.low {
       $color: $priority-low;
       background: $color;
       @include active-darken($color);
+      @include hover-darken($color);
     }
 
     &:active {

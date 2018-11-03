@@ -29,5 +29,8 @@
     width: 100%;
     margin-bottom: 15px;
     @include flex-align-justify(center, flex-start);
+    // position: sticky;
+    // top: 85px;
+    // z-index: 1;
   }
 </style>
