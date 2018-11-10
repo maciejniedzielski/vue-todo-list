@@ -69,7 +69,7 @@
     @include flex-align-justify(flex-start, flex-start);
     flex-direction: column;
     padding: 0 10px 20px;
-    background: #F7F7F7;
+    background: $list-background;
 
     &__heading {
       font-size: 1rem;
