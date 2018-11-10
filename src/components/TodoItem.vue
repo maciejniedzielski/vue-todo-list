@@ -7,7 +7,7 @@
     @click.stop="isToggled = !isToggled">
     <div class="item__badge" :class="`item__badge--${task.priority}`"></div>
     <p class="item__text">{{ task.name }}</p>
-    <button class="item__btn" @click.self="markAsDone">✓</button>
+    <button class="item__btn" @click.stop="markAsDone">✓</button>
   </div>
 </template>
 
@@ -107,8 +107,6 @@
     }
 
     &--done {
-      opacity: 0.5;
-
       .item__text {
         text-decoration: line-through;
       }
