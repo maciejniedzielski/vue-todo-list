@@ -1,13 +1,23 @@
 <template lang="html">
-  <button class="badge" :class="priorityType">
-    {{ priorityType }}
+  <button class="badge"
+    @click="setActive"
+    :class="[
+      priorityType.active ? 'badge--active' : '',
+      `badge--${priorityType.name}`
+    ]">
+    {{ priorityType.name }}
   </button>
 </template>
 
 <script>
   export default {
     name: 'TodoPriorityItem',
-    props: ['priorityType']
+    props: ['priorityType'],
+    methods: {
+      setActive() {
+        this.$set(this.priorityType, 'active', !this.priorityType.active)
+      }
+    }
   }
 </script>
 
@@ -26,26 +36,31 @@
     text-transform: uppercase;
     color: #ffffff;
     cursor: pointer;
+    opacity: 0.25;
 
-    &.high {
+    &--high {
       $color: $priority-high;
       background: $color;
       @include active-darken($color);
-      @include hover-darken($color);
+      // @include hover-darken($color);
     }
 
-    &.medium {
+    &--medium {
       $color: $priority-medium;
       background: $color;
       @include active-darken($color);
-      @include hover-darken($color);
+      // @include hover-darken($color);
     }
 
-    &.low {
+    &--low {
       $color: $priority-low;
       background: $color;
       @include active-darken($color);
-      @include hover-darken($color);
+      // @include hover-darken($color);
+    }
+
+    &--active {
+      opacity: 1;
     }
 
     &:active {

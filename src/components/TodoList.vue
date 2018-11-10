@@ -10,10 +10,7 @@
   import TodoItem from './TodoItem.vue';
   import TodoFilter from './TodoFilter.vue';
 
-  const Enum = {
-    'DONE': 0,
-    'ACTIVE': 1
-  }
+  import { STATUS_ENUM } from '../consts.js';
 
   export default {
     name: 'TodoList',
@@ -26,37 +23,37 @@
         tasks: [
           {
             name: 'Learn new view library',
-            status: Enum.DONE,
+            status: STATUS_ENUM.DONE,
             priority: 'low'
           },
           {
             name: 'Read some docs',
-            status: Enum.DONE,
+            status: STATUS_ENUM.DONE,
             priority: 'medium'
           },
           {
             name: 'Start coding',
-            status: Enum.ACTIVE,
+            status: STATUS_ENUM.ACTIVE,
             priority: 'high'
           },
           {
             name: `Read docs again when you dont know sth blah blah blah blah blah blah blah blah blah`,
-            status: Enum.ACTIVE,
+            status: STATUS_ENUM.ACTIVE,
             priority: 'medium'
           },
           {
             name: 'Continue coding',
-            status: Enum.DONE,
+            status: STATUS_ENUM.DONE,
             priority: 'medium'
           },
           {
             name: 'Do some commits',
-            status: Enum.ACTIVE,
+            status: STATUS_ENUM.ACTIVE,
             priority: 'low'
           },
           {
             name: 'Have fun!',
-            status: Enum.ACTIVE,
+            status: STATUS_ENUM.ACTIVE,
             priority: 'low'
           },
         ]

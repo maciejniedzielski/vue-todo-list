@@ -4,16 +4,16 @@
       'item--toggled': isToggled,
       'item--done': task.status == 0 
     }"
-    @click="isToggled = !isToggled">
+    @click.stop="isToggled = !isToggled">
     <div class="item__badge" :class="`item__badge--${task.priority}`"></div>
     <p class="item__text">{{ task.name }}</p>
-    <button class="item__btn" @click="markAsDone($event)">
-      ok
-    </button>
+    <button class="item__btn" @click.self="markAsDone">✓</button>
   </div>
 </template>
 
 <script>
+  import { STATUS_ENUM } from '../consts.js';
+
 	export default {
     name: 'TodoItem',
     props: ['task'],
@@ -23,9 +23,9 @@
 			}
     },
     methods: {
-      markAsDone: function(e) {
-        e.stopPropagation();
-      }
+      markAsDone() {
+        this.$set(this.task, 'status', this.task.status === STATUS_ENUM.ACTIVE ? STATUS_ENUM.DONE : STATUS_ENUM.ACTIVE);
+      },
     }
 	};
 </script>
@@ -87,6 +87,9 @@
       border-radius: 30px;
       border: 2px solid $main-color;
       cursor: pointer;
+      font-size: 1.3rem;
+      color: #ffffff;
+      position: relative;
 
       &:active {
         transform: translateY(2px);
@@ -111,7 +114,7 @@
       }
 
       .item__btn {
-        border-color: #63CBAC;
+        background: $main-color;
       }
     }
   }

@@ -23,7 +23,7 @@
 
             <input type="radio" name="priority" id="low" class="priority__input">
             <label for="low" class="priority__label priority__label--low">Low</label>
-            
+
           </div>
         </div>
 
@@ -75,7 +75,7 @@
     height: auto;
     background: #F7F7F7;
     border-radius: 5px;
-    padding: 20px 10px;
+    padding: 20px 15px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
   }
 
@@ -164,6 +164,10 @@
       font-size: 1rem;
       margin: 0 5px;
       color: $font-color;
+
+      &:active {
+        transform: translateY(2px);
+      }
 
       &--add {
         background: $main-color;

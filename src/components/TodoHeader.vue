@@ -112,7 +112,7 @@
 
     &:active {
       box-shadow: 0 2px 5px darken($shadow-color, 10%);
-      transform: translateY(-2px);
+      transform: translateY(2px);
     }
 
     &:focus {

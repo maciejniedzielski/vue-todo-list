@@ -15,9 +15,18 @@
     data() {
       return {
         priorityTypes: [
-          'high',
-          'medium',
-          'low'
+          {
+            name: 'high',
+            active: true
+          },
+          {
+            name: 'medium',
+            active: false
+          },
+          {
+            name: 'low',
+            active: false
+          }
         ]
       }
     }

@@ -8,7 +8,6 @@
 <script>
   import TodoHeader from './components/TodoHeader.vue';
   import TodoList from './components/TodoList.vue';
-    // import TodoList from './components/TodoItem.vue';
 
   export default {
     name: 'app',
