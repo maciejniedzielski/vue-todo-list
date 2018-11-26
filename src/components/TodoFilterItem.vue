@@ -34,33 +34,28 @@
     margin-right: 10px;
     border-radius: 50px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: $white;
     cursor: pointer;
-    opacity: 0.25;
+    background: $badge-inactive;
+  
+    &.badge--active {
+      &.badge--high {
+        $color: $priority-high;
+        background: $color;
+        @include active-darken($color);
+      }
 
-    &--high {
-      $color: $priority-high;
-      background: $color;
-      @include active-darken($color);
-      // @include hover-darken($color);
-    }
+      &.badge--medium {
+        $color: $priority-medium;
+        background: $color;
+        @include active-darken($color);
+      }
 
-    &--medium {
-      $color: $priority-medium;
-      background: $color;
-      @include active-darken($color);
-      // @include hover-darken($color);
-    }
-
-    &--low {
-      $color: $priority-low;
-      background: $color;
-      @include active-darken($color);
-      // @include hover-darken($color);
-    }
-
-    &--active {
-      opacity: 1;
+      &.badge--low {
+        $color: $priority-low;
+        background: $color;
+        @include active-darken($color);
+      }
     }
 
     &:active {

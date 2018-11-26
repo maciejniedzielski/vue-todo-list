@@ -1,8 +1,8 @@
 <template lang="html">
   <section class="list">
     <h2 class="list__heading">Select priority</h2>
-    <TodoFilter/>
-    <TodoItem v-for="task in tasks" :key="task.name" :task="task"/>
+    <todo-filter></todo-filter>
+    <todo-item v-for="task in tasks" :key="task.name" :task="task"></todo-item>
   </section>
 </template>
 
@@ -15,8 +15,8 @@
   export default {
     name: 'TodoList',
     components: {
-      TodoItem,
-      TodoFilter
+      'todo-item': TodoItem,
+      'todo-filter': TodoFilter
     },
     data() {
       return {

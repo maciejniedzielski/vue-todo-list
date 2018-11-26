@@ -17,7 +17,7 @@
     <button class="add-btn" @click="toggleModal()">
       <i class="material-icons">+</i>
     </button>
-  <TodoItemModal v-if="modalToggled" @toggleModal="toggleModal()"></TodoItemModal>
+  <todo-item-modal v-if="modalToggled" @toggleModal="toggleModal()"></todo-item-modal>
   </header>
 </template>
 <script lang="js">
@@ -32,7 +32,7 @@
   export default  {
     name: 'TodoHeader',
     components: {
-      TodoItemModal
+      'todo-item-modal': TodoItemModal
     },
     data() {
       return {
@@ -56,7 +56,7 @@
     height: 100px;
     @include flex-align-justify(center, space-between);
     background: $background-color;
-    border-bottom: 1px solid $border-color;
+    background: linear-gradient(to top, #434096, #7954D8);
     padding: 20px 25px; 
     position: sticky;
     z-index: 1;
@@ -70,7 +70,7 @@
 
   .header-date__day {
     width: 100%;
-    color: $main-color;
+    color: $white;
     font-size: 1.5rem;
     margin: 5px 0;
     @include flex-align-justify(flex-end, space-between);
@@ -78,7 +78,7 @@
 
   .header-date__month {
     font-size: 1.2rem;
-    color: $font-color;
+    color: $white;
     font-weight: 300;
     margin: 5px 0;
   }
@@ -89,7 +89,7 @@
 
   .counter {
     font-size: 1.2rem;
-    color: $font-color;
+    color: $white;
     font-weight: 300;
   }
 
@@ -98,25 +98,25 @@
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    background: $main-color;
+    background: $white;
     border: none;
     outline-color: $main-color;
     font-size: 2rem;
-    color: #FFFFFF;
+    color: $main-color;
     position: absolute;
     bottom: -30px;
     right: 25px;
     cursor: pointer;
-    box-shadow: 0 2px 5px $shadow-color;
+    box-shadow: 0 5px 5px $shadow-color;
     outline: none;
 
     &:active {
-      box-shadow: 0 2px 5px darken($shadow-color, 10%);
+      box-shadow: 0 5px 5px darken($shadow-color, 10%);
       transform: translateY(2px);
     }
 
     &:focus {
-      background: darken($main-color, 5%);
+      background: darken($white, 5%);
     }
   }
 

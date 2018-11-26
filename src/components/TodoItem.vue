@@ -1,9 +1,6 @@
 <template lang="html">
   <div class="item"
-    :class="{ 
-      'item--toggled': isToggled,
-      'item--done': task.status == 0 
-    }"
+    :class="{ 'item--toggled': isToggled, 'item--done': task.status == 0 }"
     @click.stop="isToggled = !isToggled">
     <div class="item__badge" :class="`item__badge--${task.priority}`"></div>
     <p class="item__text">{{ task.name }}</p>
@@ -36,9 +33,10 @@
   .item {
     @include flex-align-justify(center, space-between);
     @include content-enter(7, 0);
+    @include transition(all);
     width: 100%;
     max-height: $height;
-    background: #ffffff;
+    background: $white;
     box-shadow: 0 2px 10px $shadow-color;
     border-radius: 5px;
     padding: 20px;
@@ -85,10 +83,10 @@
       width: 30px;
       height: 30px;
       border-radius: 30px;
-      border: 2px solid $main-color;
+      border: 2px solid $priority-low;
       cursor: pointer;
       font-size: 1.3rem;
-      color: #ffffff;
+      color: $white;
       position: relative;
 
       &:active {
@@ -107,12 +105,16 @@
     }
 
     &--done {
+      background: $list-background;
+      box-shadow: 0 2px 10px lighten($shadow-color, 5%);
+
       .item__text {
         text-decoration: line-through;
+        color: $shadow-color;
       }
 
       .item__btn {
-        background: $main-color;
+        background: $priority-low;
       }
     }
   }

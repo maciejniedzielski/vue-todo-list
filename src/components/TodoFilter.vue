@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="filter">
-    <TodoFilterItem v-for="type in priorityTypes" :priorityType="type"/>
+    <todo-filter-item v-for="type in priorityTypes" :priorityType="type"></todo-filter-item>
   </section>
 </template>
 
@@ -10,7 +10,7 @@
   export default {
     name: 'TodoFilter',
     components: {
-      TodoFilterItem
+      'todo-filter-item': TodoFilterItem
     },
     data() {
       return {

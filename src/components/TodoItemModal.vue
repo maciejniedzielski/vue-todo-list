@@ -26,7 +26,7 @@
 
           </div>
         </div>
-
+        
         <div class="action">
           <button class="action__button action__button--add">Add</button>
           <button 
@@ -73,7 +73,7 @@
     animation: slide-down 300ms;
     width: 100%;
     height: auto;
-    background: #F7F7F7;
+    background: $list-background;
     border-radius: 5px;
     padding: 20px 15px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
@@ -112,7 +112,7 @@
       overflow: hidden;
 
       &:checked + .priority__label { 
-        color: #ffffff;
+        color: $white;
 
         &--high {
           background: $priority-high;
@@ -130,7 +130,7 @@
 
     &__label {
       cursor: pointer;
-      background: #ffffff;
+      background: $white;
       color: $font-color;
       padding: 12px 15px;
       text-transform: uppercase;
@@ -171,7 +171,7 @@
 
       &--add {
         background: $main-color;
-        color: #ffffff;
+        color: $white;
 
         &:hover {
           background: darken($main-color, 5%);

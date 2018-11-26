@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
-    <TodoHeader/>
-    <TodoList/>
+    <todo-header></todo-header>
+    <todo-list></todo-list>
   </div>
 </template>
 
@@ -12,8 +12,8 @@
   export default {
     name: 'app',
     components: {
-      TodoHeader,
-      TodoList
+      'todo-header': TodoHeader,
+      'todo-list': TodoList
     }
   }
 </script>
