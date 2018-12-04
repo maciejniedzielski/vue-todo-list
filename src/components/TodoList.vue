@@ -9,8 +9,9 @@
 <script>
   import TodoItem from './TodoItem.vue';
   import TodoFilter from './TodoFilter.vue';
+  import { store }  from '../store/store';
 
-  import { STATUS_ENUM } from '../consts.js';
+  import { STATUS_ENUM } from '../consts';
 
   export default {
     name: 'TodoList',
@@ -20,43 +21,7 @@
     },
     data() {
       return {
-        tasks: [
-          {
-            name: 'Learn new view library',
-            status: STATUS_ENUM.DONE,
-            priority: 'low'
-          },
-          {
-            name: 'Read some docs',
-            status: STATUS_ENUM.DONE,
-            priority: 'medium'
-          },
-          {
-            name: 'Start coding',
-            status: STATUS_ENUM.ACTIVE,
-            priority: 'high'
-          },
-          {
-            name: `Read docs again when you dont know sth blah blah blah blah blah blah blah blah blah`,
-            status: STATUS_ENUM.ACTIVE,
-            priority: 'medium'
-          },
-          {
-            name: 'Continue coding',
-            status: STATUS_ENUM.DONE,
-            priority: 'medium'
-          },
-          {
-            name: 'Do some commits',
-            status: STATUS_ENUM.ACTIVE,
-            priority: 'low'
-          },
-          {
-            name: 'Have fun!',
-            status: STATUS_ENUM.ACTIVE,
-            priority: 'low'
-          },
-        ]
+        tasks: store.getters.getTasks
       }
     }
   }

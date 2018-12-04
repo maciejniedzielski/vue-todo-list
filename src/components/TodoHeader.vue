@@ -3,31 +3,36 @@
     <div class="header-date">
       <div class="header-date__day">
         <span><span class="bold">{{ dayName }}</span>, {{ day }}</span>
-        <datetime type="date" v-model="date"  input-id="filterDate" input-class="filter-date" class="datepicker">
+        <datetime type="date"
+          v-model="date"
+          input-id="filterDate"
+          input-class="filter-date"
+          class="datepicker">
           <label for="filterDate" slot="before">
             <div class="icon-container">
               <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
             </div>
           </label>
         </datetime>
-        <p class="counter"><span class="bold">12</span> Tasks</p>
+        <p class="counter"><span class="bold">{{ tasksCount }}</span> Tasks</p>
       </div>
       <p class="header-date__month">{{ month }}</p>
     </div>
     <button class="add-btn" @click="toggleModal()">
       <i class="material-icons">+</i>
     </button>
-  <todo-item-modal v-if="modalToggled" @toggleModal="toggleModal()"></todo-item-modal>
+  <todo-item-modal
+    v-if="modalToggled"
+    @toggleModal="toggleModal()"></todo-item-modal>
   </header>
 </template>
 <script lang="js">
-  import TodoItemModal from './TodoItemModal.vue';
+  import { store } from '../store/store'
+  import TodoItemModal from './TodoItemModal.vue'
+
+  import { days, monthNames } from '../consts'
 
   const date = new Date();
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-  ];
 
   export default  {
     name: 'TodoHeader',
@@ -40,7 +45,8 @@
         day: date.getDate(),
         dayName: days[date.getDay()],
         modalToggled: false,
-        date: date.toISOString()
+        date: date.toISOString(),
+        tasksCount: store.getters.tasksCount
       }
     },
     methods: {
