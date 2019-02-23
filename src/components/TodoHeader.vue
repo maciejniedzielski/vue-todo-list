@@ -2,18 +2,18 @@
   <header class="header">
     <div class="header-date">
       <div class="header-date__day">
-        <span><span class="bold">{{ dayName }}</span>, {{ day }}</span>
-        <datetime type="date"
-          v-model="date"
-          input-id="filterDate"
-          input-class="filter-date"
-          class="datepicker">
-          <label for="filterDate" slot="before">
-            <div class="icon-container">
-              <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
-            </div>
-          </label>
-        </datetime>
+        <div class="day-container">
+          <span class="bold">{{ dayName }}</span>, {{ day }}
+          <datetime type="date"
+            v-model="date"
+            input-id="filterDate"
+            input-class="filter-date"
+            class="datepicker datepicker--header">
+            <label for="filterDate" slot="before" class="header-label">
+              <img src="../assets/calendar-white.svg" alt="Datepicker icon" class="icon icon--header">
+            </label>
+          </datetime>
+        </div>
         <p class="counter"><span class="bold">{{ tasksCount }}</span> Tasks</p>
       </div>
       <p class="header-date__month">{{ month }}</p>
@@ -67,6 +67,10 @@
     position: sticky;
     z-index: 1;
     top: 0;
+
+    @media screen and (min-width: 576px) {
+      border-radius: 5px 5px 0 0;
+    }
   }
 
   .header-date {
@@ -74,12 +78,17 @@
     flex-direction: column;
   }
 
+
   .header-date__day {
     width: 100%;
     color: $white;
     font-size: 1.5rem;
     margin: 5px 0;
     @include flex-align-justify(flex-end, space-between);
+  }
+
+  .day-container {
+    @include flex-align-justify(center, space-between);
   }
 
   .header-date__month {
@@ -126,11 +135,4 @@
     }
   }
 
-  .icon-container {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 0;
-    left: -45px;
-  }
 </style>

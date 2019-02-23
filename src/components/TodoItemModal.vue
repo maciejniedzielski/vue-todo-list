@@ -1,56 +1,62 @@
 <template lang="html">
-  <div class="modal-overlay"  @click.self="toggleModal()">
+  <div class="modal-overlay" @click.self="toggleModal()">
     <div class="modal">
-      <form>
+      <form @submit.prevent="addTask">
         <p class="form-heading">Add new task</p>
-        <input type="text" placeholder="Task name..." class="input">
-
+        <input v-model="form.name" type="text" placeholder="Task name..." class="input">
         <div class="input-container">
-          <datetime type="date" input-id="filterDate" input-class="filter-date" class="datepicker">
-            <label for="filterDate" slot="before">
-              <div class="icon-container">
-                <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
-              </div>
+          <datetime v-model="form.date" type="date" input-id="date" input-class="filter-date" class="datepicker">
+            <label for="date" slot="before">
+              <img src="../assets/calendar.svg" alt="Datepicker icon" class="icon">
             </label>
           </datetime>
-          <div class="priority">
 
-            <input type="radio" name="priority" id="high" class="priority__input">
+          <div class="priority">
+            <input v-model="form.priority" type="radio" name="priority" value="high" id="high" class="priority__input">
             <label for="high" class="priority__label priority__label--high">High</label>
 
-            <input type="radio" name="priority" id="medium" class="priority__input">
+            <input v-model="form.priority" type="radio" name="priority" value="medium" id="medium" class="priority__input">
             <label for="medium" class="priority__label priority__label--medium">Medium</label>
 
-            <input type="radio" name="priority" id="low" class="priority__input">
+            <input v-model="form.priority" type="radio" name="priority" value="low" id="low" class="priority__input">
             <label for="low" class="priority__label priority__label--low">Low</label>
-
           </div>
         </div>
-        
         <div class="action">
-          <button class="action__button action__button--add">Add</button>
+          <button type="submit" class="action__button action__button--add">Add</button>
           <button 
             @click.prevent="toggleModal($event)"
             class="action__button action__button--cancel">Cancel</button>
         </div>
-
       </form>
     </div>
   </div>
 </template>
 
 <script>
+  import { store } from '../store/store'
+  import { STATUS_ENUM } from '../consts'
+
   export default {
     name: 'TodoItemModal',
     data() {
       return {
-        date: new Date().toISOString()
+        form: {
+          name: '',
+          date: new Date().toISOString(),
+          priority: '',
+          status: STATUS_ENUM.ACTIVE
+        }
       }
     },
     methods: {
+      addTask() {
+        store.commit('addTask', this.form);
+        this.$emit('toggleModal');
+      },
       toggleModal(e) {
         this.$emit('toggleModal');
-      }
+      },
     }
   }
 </script>
@@ -64,7 +70,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 999;
+    z-index: 998;
     background: rgba(0, 0, 0, .5);
     padding: 10px;
   }
@@ -77,6 +83,10 @@
     border-radius: 5px;
     padding: 20px 15px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+
+    @media screen and (min-width: 576px) {
+      max-width: 340px;
+    }
   }
 
   .form-heading {

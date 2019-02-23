@@ -1,12 +1,17 @@
 .datepicker {
+  
+  &--header {
+    margin-left: 20px;
+  }
+
   .vdatetime-popup {
     animation: slide-down 300ms;
     width: 100%;
-    max-width: calc(100% - 20px);
-    left: 10px;
-    top: auto;
+    max-width: 320px;
+    left: calc(50% - 160px);
+    top: 50%;
     bottom: auto;
-    transform: translate(0%);
+    transform: translateY(-50%);
   }
 
   .vdatetime-popup__header,
@@ -71,7 +76,8 @@
   }
 
   .filter-date {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
   }
 
   .vdatetime-calendar__month__day {
@@ -89,3 +95,14 @@
   }
 }
 
+
+.vdatetime-calendar__month__weekday, .vdatetime-calendar__month__day {
+  height: 36px;
+  width: 36px;
+}
+
+.vdatetime-input.filter-date {
+  height: 0;
+  width: 0;
+  padding: 0;
+}

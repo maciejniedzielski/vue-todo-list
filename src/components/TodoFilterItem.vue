@@ -10,12 +10,14 @@
 </template>
 
 <script>
+  import { store } from '../store/store';
+  
   export default {
     name: 'TodoPriorityItem',
     props: ['priorityType'],
     methods: {
       setActive() {
-        this.$set(this.priorityType, 'active', !this.priorityType.active)
+        this.$set(this.priorityType, 'active', !this.priorityType.active);
       }
     }
   }
@@ -37,6 +39,10 @@
     color: $white;
     cursor: pointer;
     background: $badge-inactive;
+
+    @media screen and (min-width: 576px) {
+      min-width: 72px;
+    }
   
     &.badge--active {
       &.badge--high {

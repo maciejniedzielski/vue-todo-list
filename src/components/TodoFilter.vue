@@ -5,30 +5,16 @@
 </template>
 
 <script>
-  import TodoFilterItem from './TodoFilterItem';
-
+  import TodoFilterItem from './TodoFilterItem'
+  import { store } from '../store/store'
+  
   export default {
     name: 'TodoFilter',
     components: {
       'todo-filter-item': TodoFilterItem
     },
-    data() {
-      return {
-        priorityTypes: [
-          {
-            name: 'high',
-            active: true
-          },
-          {
-            name: 'medium',
-            active: false
-          },
-          {
-            name: 'low',
-            active: false
-          }
-        ]
-      }
+    computed: {
+      priorityTypes: () => store.getters.priorityTypes
     }
   }
 </script>
@@ -37,7 +23,7 @@
   .filter {
     width: 100%;
     margin-bottom: 15px;
-    @include flex-align-justify(center, flex-start);
+    // @include flex-align-justify(center, flex-start);
     // position: sticky;
     // top: 85px;
     // z-index: 1;

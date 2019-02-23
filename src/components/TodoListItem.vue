@@ -2,7 +2,7 @@
   <div class="item"
     :class="{ 'item--toggled': isToggled, 'item--done': task.status == 0 }"
     @click.stop="isToggled = !isToggled">
-    <div class="item__badge" :class="`item__badge--${task.priority}`"></div>
+    <div class="item__badge" :class="`item__badge--${task.priority.name}`"></div>
     <p class="item__text">{{ task.name }}</p>
     <button class="item__btn" @click.stop="markAsDone">✓</button>
   </div>
@@ -12,7 +12,7 @@
   import { STATUS_ENUM } from '../consts.js';
 
 	export default {
-    name: 'TodoItem',
+    name: 'TodoListItem',
     props: ['task'],
 		data() {
 			return {
@@ -35,7 +35,6 @@
     @include content-enter(7, 0);
     @include transition(all);
     width: 100%;
-    max-height: $height;
     background: $white;
     box-shadow: 0 2px 10px $shadow-color;
     border-radius: 5px;
@@ -95,7 +94,7 @@
     }
 
     &--toggled {
-      max-height: 500px;
+      // max-height: 300px;
 
       .item__text {
         white-space: unset;

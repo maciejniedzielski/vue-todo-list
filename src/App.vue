@@ -23,6 +23,13 @@
 body, html {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 576px) {
+    background: linear-gradient(45deg, #9c28bb, #6ea4e8)
+  }
 }
 
 .app {
@@ -31,5 +38,12 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
+
+  @media screen and (min-width: 576px) {
+    max-width: 380px;
+    max-height: 640px;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px 0px #0000006b;
+  }
 }
 </style>

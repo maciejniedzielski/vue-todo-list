@@ -4,15 +4,15 @@ import Datetime from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
 
 import { Settings } from 'luxon'
-import { store}  from './store/store'
+import { store } from './store/store'
 
 Settings.defaultLocale = 'en'
 
 Vue.use(Datetime)
 Vue.config.productionTip = false
 
-new Vue({
+const vue = new Vue({
   el: '#app',
   store,
   render: h => h(App)
-});
+})

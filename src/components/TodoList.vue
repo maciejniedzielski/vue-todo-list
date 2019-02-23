@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import TodoItem from './TodoItem.vue';
+  import TodoListItem from './TodoListItem.vue';
   import TodoFilter from './TodoFilter.vue';
   import { store }  from '../store/store';
 
@@ -16,13 +16,11 @@
   export default {
     name: 'TodoList',
     components: {
-      'todo-item': TodoItem,
+      'todo-item': TodoListItem,
       'todo-filter': TodoFilter
     },
-    data() {
-      return {
-        tasks: store.getters.getTasks
-      }
+    computed: {
+      tasks: () => store.getters.getFilteredTasks
     }
   }
 </script>
@@ -40,6 +38,11 @@
       font-size: 1rem;
       margin: 15px 0;
       color: $font-color;
+    }
+
+    @media screen and (min-width: 576px) {
+      height: 540px;
+      overflow-y: scroll;
     }
   }
 </style>
